@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock %} 
+{% block content %}
+
+<div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class ="timer-box">
+                        <h3><span class="level">Level {{q.level}} </span></h3>
+                    </div>    
+                    
+                    <div class="answer-box">
+                            <form method ="POST" id="score_form" enctype="multipart/form-data" action ="#" class="form-horizontal" role="form">
+                            <div class="row" style="margin-left:0px">
+                                <p>Your Answer:</p>
+                                {{form.key}}
+                                <input type="submit" id="submit-answer" value ="submit" class="btn btn-primary custom-button"/>
+                            </div>
+                                        
+                        </form>
+                    </div>
+                    {% if state == 'wrong' %}
+                    <div class="popup-box">
+                        <h4>Wrong Answer </h4>
+                        
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-9">
+                    <h4 class="question">{{q.description}}</h4>
+                    <div class ="q-image-box">
+                        <img class="question-image" src="/media/{{q.image}}">
+                    </div>
+                </div>  
+            </div>
+</div> 
+    
+
+{% endblock %}
+
+ 

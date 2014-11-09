@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} About {% endblock %} 
+{% block content %}
+
+<h1>Hello {{ variable }}, welcome to my awesome site</h1>
+<button id ="button" type="button">click</button>   
+<h1> sdfgf  </h1>
+
+<script type="text/javascript">
+    $('#button').on('click',function(){
+        alert('clicked');
+            var a ="ranjan"
+            $.ajax({
+            url: '/accounts/about/',
+            type: 'post',
+            data: {'a':a},
+            success: function(data) {
+                alert(a);
+            },
+            failure: function(data) { 
+                alert('Got an error dude');
+            }
+    });	
+}); 
+</script>
+{% endblock %}
+
+ 

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="signup-form">
+	 <div class="row">
+	 	<div class ="col-md-5 add-question-box">
+		    <form action='.' method="POST">{% csrf_token %}
+           		<div class="row">
+					<div class="col-md-4 reg-labels">
+						<p>{{ form.username.label }}</p>
+				 	</div>
+				    <div class="col-md-8 reg-labels">
+				 		<p>{{ form.username }}</p>
+	     			</div>
+	     		</div>
+
+	     		<div class="row">
+					<div class="col-md-4 reg-labels">
+		     		 	<p>{{ form.email.label }}</p>
+		     		</div>
+		     		<div class="col-md-8 reg-labels">
+	     		 		<p>{{ form.email }}</p>
+	     			</div>
+	     		</div>
+
+	     		<div class="row">
+					<div class="col-md-4 reg-labels">
+		     		 	<p>{{ form.firstName.label }}</p>
+		     		</div>
+		     		<div class="col-md-8 reg-labels">
+	     		 		<p>{{ form.firstName }}</p>
+	     			</div>
+	     		</div>
+
+				<div class="row">
+					<div class="col-md-4 reg-labels">
+	     		 		<p>{{ form.lastName.label }}</p>
+		     		</div>
+		     		<div class="col-md-8 reg-labels">
+	     		 		<p>{{ form.lastName }}</p>
+	     			</div>
+	     		</div>
+
+	     		<div class="row">
+					<div class="col-md-4 reg-labels">
+	     		 		<p>{{ form.password.label }}</p>
+		     		</div>
+		     		<div class="col-md-8 reg-labels">
+	     		 		<p>{{ form.password }}</p>
+	     			</div>
+	     		</div>
+
+	     		<div class="row">
+					<div class="col-md-4 reg-labels">
+	     		 		<p>{{ form.repassword.label }}</p>
+		     		</div>
+		     		<div class="col-md-8 reg-labels">
+	     		 		<p>{{ form.repassword}}</p>
+	     			</div>
+	     		</div>
+
+	     		<div class="row">
+					<div class="col-md-4 reg-labels">
+	     		 		<p>{{ form.contact.label }}</p>
+		     		</div>
+		     		<div class="col-md-8 reg-labels">
+	     		 		<p>{{ form.contact }}</p>
+	     			</div>
+	     		</div>
+    		 <input class= "btn btn-primary custom-button" style ="margin-left:57%i;"type="submit" value="submit"/>
+		</form>
+	   </div>
+	</div>
+</div>
+{% endblock %}
+			
+		
+
+<!-- <p><span class="reg-label">Firstname:</span><span class="reg-text" >{{ form.username }}</span></p>
+			<p><span class="reg-label">Location:</span><span class="reg-text">{{ form.email }}</span></p>
+	     	<p><span class="reg-label">First Name:</span><span class="reg-text">{{ form.firstName }}</span></p>
+	     	<p><span class="reg-label">Last Name :</span><span class="reg-text">{{ form.lastName }}</span></p>
+	     	<p><span class="reg-label">Password :</span><span class="reg-text">{{ form.password }}</span></p>
+	     	<p><span class="reg-label">Repassword :</span><span class="reg-text">{{ form.repassword }}</span></p>
+	     	<p><span class="reg-label">Contact :</span class="reg-text">{{ form.contact }}</p>
+			<input type="submit" value="submit"/> -->

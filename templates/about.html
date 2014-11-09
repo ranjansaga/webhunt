@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %} About {% endblock %} 
+{% block content %}
+    
+     <div id="home">
+     	<form method="POST" action="">{% csrf_token %}
+     	  	{{form.as_p}}
+     	  	<input type ="button" value="Submit" id ="about_form">
+     	</form>
+     </div>
+
+    <script type="text/javascript">
+
+        var csrftoken = $.cookie('csrftoken');
+            function csrfSafeMethod(method) {
+                // these HTTP methods do not require CSRF protection
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+         $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                 }
+             }
+         });
+              $("#about_form").submit(function(e)
+                    {
+                     var a="ranjan"                    
+                     $.ajax({
+                        url: "/accounts/about/",
+                        type: 'POST',
+                        data:  {'a':a},
+                        async: false,
+                        mimeType:"multipart/form-data",
+                     success: function(data, textStatus, jqXHR)
+                     {
+                        alert("success");
+                     },
+                     error: function(jqXHR, textStatus, errorThrown) 
+                     {
+                        alert(errorThrown);
+                     }          
+                    });
+                    e.preventDefault(); //Prevent Default action. 
+                }); 
+                $("#about_form").submit(); //Submit the form
+    </script>
+   
+    
+{% endblock %}
+
+ 

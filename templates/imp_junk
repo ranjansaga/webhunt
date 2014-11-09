@@ -1,0 +1,101 @@
+<script>
+
+function score()
+  {
+   var a=100;
+   document.getElementById("demo").value = a ;
+  }
+</script>
+
+
+  ------------------ajax-----------------------
+
+  $('#submit-answer').click(function()
+{
+  var time_taken = totalSeconds;
+  var p_id = {{ q.id }} ;
+  var slug = {{q.slug }};
+  
+  alert("hello")
+  $.ajax({
+    url: "/puzzles/round/"+"/"+p_id + "/" + slug,
+    type:"POST",
+    data: {'time_taken': totalSeconds},
+  }).done(function(data){
+     alert(data);//do what you want to do with response
+  });
+}); 
+
+---------------------------ends------------------------
+
+else{
+                    $("#score_form").submit(function(e)
+                    {
+                 
+                    var formObj = $(this);
+                    var formURL = formObj.attr("action");
+                    var formData = new FormData(this);
+                    $.ajax({
+                        url: formURL,
+                        type: 'POST',
+                        data:  formData,
+                        async: false,
+                        mimeType:"multipart/form-data",
+                        contentType: false,
+                        cache: false,
+                        processData:false,
+                    success: function(data, textStatus, jqXHR)
+                    {
+                        alert(data);
+                    },
+                     error: function(jqXHR, textStatus, errorThrown) 
+                     {
+                        alert(errorThrown);
+                     }          
+                    });
+                    e.preventDefault(); //Prevent Default action. 
+                }); 
+                $("#score_form").submit(); //Submit the form
+                }
+
+---------------------------new ajax-----------------------
+else{
+                    $("#score_form").submit(function(e)
+                    {
+                    var time_taken = totalSeconds;
+                    var p_id = {{ q.id }} ;
+                    var slug = "what-is-the-capital-of-india/";
+                    var formObj = $(this);
+                    var formURL = formObj.attr("action");
+                    var formData = new FormData(this);
+                    
+                    $.ajax({
+                        url: "/puzzles/round"+"/"+p_id + "/" + slug,
+                        type: 'POST',
+                        data:  formData,
+                        async: false,
+                        mimeType:"multipart/form-data",
+                        contentType: false,
+                        cache: false,
+                        processData:false,
+                    success: function(data, textStatus, jqXHR)
+                    {
+                        alert(data);
+                    },
+                     error: function(jqXHR, textStatus, errorThrown) 
+                     {
+                        alert(errorThrown);
+                     }          
+                    });
+                    e.preventDefault(); //Prevent Default action. 
+                }); 
+                $("#score_form").submit(); //Submit the form
+                }
+
+                -------------
+
+                "+"/"+p_id + "/" + slug
+
+                ---------------------------
+
+                Redirect(reverse('puzzles.views.puzzle', kwargs={'p_id':p_id ,'slug':q.slug}))

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock %} 
+{% block content %}
+<div class="signup-form">
+		<form class ="inline-block" method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+    		<div class="row">
+                <div class="col-md-5 add-question-box">
+
+	           		<div class="row">
+						<div class="col-md-4 reg-labels">
+						 	<p>{{ form.level.label }}</p>
+						</div>
+						<div class="col-md-8">
+	     		 			<p>{{ form.level }}</p>
+	     				</div>
+	     			</div>
+
+	     			<div class="row">
+						<div class="col-md-4 reg-labels">
+ 	   		 				<p>{{ form.description.label }}</p>
+ 	   		 			</div>
+ 	   		 			<div class="col-md-8">
+	     		 			<p>{{ form.description }}</p>	
+	     				</div>
+	     			</div>
+
+	     			<div class="row">
+ 	   		 			<div class="col-md-4 reg-labels">
+	     		 			<p>{{ form.image.label }}</p>
+	     				</div>
+	     				<div class="col-md-8 reg-labels">
+	     		 			<p>{{ form.image }}</p>
+	     				</div>
+					</div>
+
+					<div class="row">
+	     				<div class="col-md-4 reg-labels">
+			     		 	<p>{{ form.answer.label }}</p>
+	    		 		</div>
+	     				<div class="col-md-8">
+		     		 		<p>{{ form.answer }}</p>
+	    		 		</div>
+
+					</div>
+    		<input type="submit" class="btn btn-primary custom-button" style ="margin-left:57% " value="submit"/>
+		</form>
+</div>    
+{% endblock %}
+
+ 
